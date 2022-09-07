@@ -1,0 +1,27 @@
+<div class="text-center p-5 m-5">
+    <div>
+        <select class="form-select" aria-label="Movie List" name="moviesData" [(ngModel)]="selectedMovie"
+            (ngModelChange)="getMoviesData()" placeholder="Select Movie Categories">
+            <option *ngFor="let movie of movieCategories" [value]="movie.value">{{ movie.name }}</option>
+        </select>
+        <hr>
+
+        <div class="m-2">
+            Showing Result for : {{selectedMovie}}
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let movie of moviesData">
+                    <div class="card m-1" style="width: 18rem;" (click)="viewMoviewDetails(movie._id)">
+                        <div class="card-body">
+                            <img class="img-fluid" [src]="movie.image">
+                            <h5 class="card-title">{{movie.title}} </h5>
+                            <p class="card-text">Title : {{movie.title}}</p>
+                            <p class="card-text">Original Title : {{movie.titleOriginal}}</p>
+                            <p class="card-text">Description : {{movie.description}}</p>
+                            <small class="card-text">Release Date : {{movie.release}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
